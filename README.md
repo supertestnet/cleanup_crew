@@ -21,7 +21,7 @@ Typically, the truncated version includes a list of all the inputs to the transa
 5. One input and one output (sighash_single | anyone_can_pay)
 6. One input and zero outputs (sighash_none | anyone_can_pay)
 
-The Sighash Single Bug affects two of these sighash flags: sighash_single and sighash_single | anyone_can_pay. If a wallet uses either of those sighashes while signing a transaction, the wallet is *supposed to* sign one output. But which one? The answer is: the output to sign must be selected by running an algorithm that looks at the index of whatever *input* is being signed and finds a "matching output" at the same index.
+The Sighash Single Bug affects two of these sighash flags: sighash_single and sighash_single | anyone_can_pay. If a wallet uses either of those sighashes while signing a transaction, the wallet is *supposed to* sign one output. But which one? The answer is: it depends on the input. Every input has a field where you're supposed to place the signature for whatever bitcoin address is in that "from" position. The field you put your signature in determines the input you're signing, and the output to sign must be selected by running an algorithm that looks at the index of whatever *input* is being signed and finds a "matching output" at the same index.
 
 So, for example, suppose you are sending "from" 3 bitcoin addresses and sending "to" 2 bitcoin addresses. The three "from" addresses are part of your transaction's "inputs," and you have to create a signature for each one. If you sign the "first" input with sighash_single, it will also sign one output: the first output. If you sign the "second" input with sighash_single, it will also sign one output: the second output.
 
