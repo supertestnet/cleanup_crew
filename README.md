@@ -7,6 +7,9 @@ This is a website where you can play with the bitcoin bug commonly called the Si
 # How can I try it?
 Go here and follow the instructions: https://supertestnet.github.io/ssb_playground
 
+# Video demo
+[![](https://supertestnet.github.io/ssb_playground/ssb-playground-thumbnail.png)](https://www.youtube.com/watch?v=1w8Fq8HejhU)
+
 # I'm confused, please explain
 The Sighash Single Bug (SSB) is a bug in bitcoin's signature checking algorithm that affects certain legacy transactions, i.e. ones that don't use segwit. (In case you're wondering, "what about taproot?" taproot transactions are segwit transactions, so they are unaffected by this bug.)
 
